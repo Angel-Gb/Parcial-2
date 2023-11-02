@@ -12,8 +12,8 @@ private:
 
 public:
 
-    Jugador(char f) : ficha(f);
-    void ElegirMovimiento(const Tablero& tablero, int &fila, int &columna) const;
+    Jugador(char f) : ficha(f) {}
+    void ElegirMovimiento(const Tablero& tablero, int &fila, int &columna) const {}
 };
 
 #endif // JUGADOR_H
