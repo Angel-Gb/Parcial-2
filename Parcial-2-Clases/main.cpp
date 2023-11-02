@@ -5,8 +5,11 @@
 
 using namespace std;
 
+
+
 int main()
 {
+
     // Crear jugadores
     Jugador jugador1('X');
     Jugador jugador2('O');

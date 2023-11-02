@@ -9,8 +9,8 @@ class Tablero
     private:
 
         char **tablero; //Matriz dinámica para representar el tablero.
-        int filas;      // Número de filas en el tablero.
-        int columnas;   //Número de columnas en el tablero.
+        int filas = 8 ;      // Número de filas en el tablero.
+        int columnas = 8;   //Número de columnas en el tablero.
 
     public:
 

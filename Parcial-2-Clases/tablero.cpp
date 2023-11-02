@@ -4,14 +4,15 @@
 
 Tablero::Tablero(int filas, int columnas)
 {
-    tablero = new char*[filas]; // Inicialización de la matriz dinámica.
-    for (int i = 0; i < filas; i++) {
-        tablero[i] = new char[columnas];
-        for (int j = 0; j < columnas; j++) {
-            tablero[i][j] = ' ';
+    tablero = new char* [filas]; // Inicialización de la matriz dinámica.
+    for (int i = 0; i <= filas; i++) {
+        tablero[i] = new char [columnas];
+        for (int j = 0; j <= columnas; j++) {
+            tablero[i][j] = 32;
         }
     }
 
+    //filas, columnas;
     // Colocando las piezas iniciales en el centro del tablero.
 
     tablero[filas/2 - 1][columnas/2 - 1] = 'O';
