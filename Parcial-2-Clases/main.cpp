@@ -70,6 +70,10 @@ int main()
 
         // Cambiar al siguiente jugador
         jugadorActual = (jugadorActual == 'X') ? 'O' : 'X';
+
+
+        //Comprobando si hay jugadas posibles
+        //if (tablero.JuegoFinalizado() = )
     }
 
     // Mostrar el resultado

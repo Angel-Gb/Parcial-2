@@ -122,7 +122,7 @@ bool Tablero::HayMovimientosDisponibles(char jugador) const {
 
 // Método para verificar si el juego ha finalizado.
 bool Tablero::JuegoFinalizado() const {
-    return !(HayMovimientosDisponibles('X') || HayMovimientosDisponibles('O'));
+    return !(HayMovimientosDisponibles('X') or HayMovimientosDisponibles('O'));
 }
 
 char Tablero::ObtenerGanador() const {
