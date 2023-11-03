@@ -5,8 +5,6 @@
 
 using namespace std;
 
-
-
 int main()
 {
 
@@ -26,22 +24,44 @@ int main()
 
     char jugadorActual = 'X';
     while (!tablero.JuegoFinalizado()) {
+        char filas;
         int fila;
         char columnaChar;
         int columna;
         bool movimientoValido;
 
         do {
-            std::cout << "Turno del jugador " << jugadorActual << std::endl;
-            std::cout << "Ingrese la fila (1-8): ";
-            std::cin >> fila;
-            std::cout << "Ingrese la columna (A-H): ";
-            std::cin >> columnaChar;
+
+                std::cout << "Turno del jugador " << jugadorActual << std::endl;
+
+
+                std::cout << "Ingrese la fila (1-8): ";
+                std::cin >> filas;
+                while(filas < 49 or filas > 56){
+                    std::cout<<"Movimiento invalido, intentelo denuevo"<<std::endl;
+                    std::cout << "Ingrese la fila (1-8): ";
+                    std::cin >> filas;
+                }
+
+                fila = filas - '0';
+
+                std::cout << "Ingrese la columna (A-H): ";
+                std::cin >> columnaChar;
+                while(columnaChar <= 64 or columnaChar >= 73){
+                    std::cout<<"Movimiento invalido, intentelo denuevo"<<std::endl;
+                    std::cout << "Ingrese la columna (A-H): ";
+                    std::cin >> columnaChar;
+                }
+
             columna = columnaChar - 'A';
+
+            _sleep(3000);
+            system("cls");
 
             movimientoValido = tablero.EsMovimientoValido(fila-1, columna, jugadorActual);
             if (!movimientoValido) {
                 std::cout << "Movimiento no valido. Por favor, intente de nuevo." << std::endl;
+                tablero.ImprimirTablero();
             }
         } while (!movimientoValido);
 
@@ -57,3 +77,5 @@ int main()
 
     return 0;
 }
+
+
