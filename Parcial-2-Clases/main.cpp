@@ -109,9 +109,9 @@ int main()
 
             gano = tablero.ObtenerGanador();
             if(gano == true)
-                NuevoRegistro = jugador+",si,"+Nfichas+HorayFecha+";";
+                NuevoRegistro = jugador+",si,"+Nfichas+HorayFecha+"; \n";
             else
-                NuevoRegistro = jugador+",no,"+Nfichas+HorayFecha+";";
+                NuevoRegistro = jugador+",no,"+Nfichas+HorayFecha+"; \n";
         }
 
         else
@@ -123,9 +123,9 @@ int main()
 
             gano = tablero.ObtenerGanador();
             if(gano == true)
-                NuevoRegistro = jugador+",si,"+Nfichas+HorayFecha+";";
+                NuevoRegistro = jugador+",si,"+Nfichas+HorayFecha+"; \n";
             else
-                NuevoRegistro = jugador+",no,"+Nfichas+HorayFecha+";";
+                NuevoRegistro = jugador+",no,"+Nfichas+HorayFecha+"; \n";
         }
 
     }
