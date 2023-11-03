@@ -1,9 +1,16 @@
 #include <iostream>
+#include <fstream>
+#include <string>
+#include <ctime>
+
 #include "tablero.h"
 #include "juego.h"
 #include "jugador.h"
 
 using namespace std;
+
+void Registro(string NuevoRegistro);
+char* HoraFecha();
 
 int main()
 {
@@ -73,22 +80,92 @@ int main()
 
 
         //Comprobando si hay jugadas posibles
-        if (tablero.JuegoFinalizado() == true)
-        {
-            std::cout<<"El juego a finalizado"<<std::endl;
-            char ganador = tablero.ObtenerGanador();
-            std::cout<<"El ganador es: "<< ganador << std::endl;
-        }
+//        if (tablero.JuegoFinalizado() == true)
+//        {
+//            std::cout<<"El juego a finalizado"<<std::endl;
+//            char ganador = tablero.ObtenerGanador();
+//            std::cout<<"El ganador es: "<< ganador << std::endl;
+//        }
     }
 
-    std::cout<<"El juego a finalizado"<<std::endl;
+    char ganador;
+
+    if (tablero.JuegoFinalizado() == true)
+    {
+        std::cout<<"El juego a finalizado"<<std::endl;
+        ganador = tablero.ObtenerGanador();
+        std::cout<<"El ganador es: "<< ganador << std::endl;
+        _sleep(3000);
+    }
+
+    /*std::cout<<"El juego a finalizado"<<std::endl;
     char ganador = tablero.ObtenerGanador();
-    std::cout<<"El ganador es: "<< ganador << std::endl;
+    std::cout<<"El ganador es: "<< ganador << std::endl;*/
 
     // Mostrar el resultado
     juego.MostrarResultado();
+
+    char *HorayFecha = HoraFecha();
+
+    for (int k = 0; k < 1; k++)
+    {
+        string jugador, NuevoRegistro = " ";
+        char gano= 0, Nfichas = 0;
+        Registro(NuevoRegistro);
+
+        if(ganador = 'X')
+        {
+            std::cout<<"Ingrese el nombre del jugador X: ";
+            std::cin>>jugador;
+
+            Nfichas = tablero.CantidadFichas();
+
+            gano = tablero.ObtenerGanador();
+            if(gano == true)
+                NuevoRegistro = jugador+",si,"+Nfichas+HorayFecha+";";
+            else
+                NuevoRegistro = jugador+",no,"+Nfichas+HorayFecha+";";
+        }
+
+        else
+        {
+            std::cout<<"Ingrese el nombre del jugador 0: ";
+            std::cin>>jugador;
+
+            Nfichas = tablero.CantidadFichas();
+
+            gano = tablero.ObtenerGanador();
+            if(gano == true)
+                NuevoRegistro = jugador+",si,"+Nfichas+HorayFecha+";";
+            else
+                NuevoRegistro = jugador+",no,"+Nfichas+HorayFecha+";";
+        }
+
+    }
 
     return 0;
 }
 
 
+void Registro(string NuevoRegistro){
+    ofstream archivo;
+    archivo.open("Registro.txt", ios::in);
+    if(archivo.fail()){
+        cout<<"No se pudo abrir el archivo";
+        exit(1);
+    }
+
+    if(NuevoRegistro != " ")
+    {
+        archivo<<NuevoRegistro;
+        archivo.close();
+    }
+}
+
+char* HoraFecha(){
+    char *registro;
+    time_t tAct = time(NULL);
+    asctime(localtime(&tAct));
+    registro=asctime(localtime(&tAct));
+    return registro;
+}

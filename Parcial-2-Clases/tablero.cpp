@@ -141,3 +141,17 @@ char Tablero::ObtenerGanador() const {
     if (x == o) return '-';
     return (x > o) ? 'X' : 'O';
 }
+
+char Tablero::CantidadFichas() {
+
+    int x = 0, o = 0;
+    for (int i = 0; i < filas; i++) {
+        for (int j = 0; j < columnas; j++) {
+            if (tablero[i][j] == 'X') x++;
+            else if (tablero[i][j] == 'O') o++;
+        }
+    }
+    if(x>o) return x;
+    if(o<x) return o;
+
+}
