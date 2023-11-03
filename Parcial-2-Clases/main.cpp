@@ -73,8 +73,17 @@ int main()
 
 
         //Comprobando si hay jugadas posibles
-        //if (tablero.JuegoFinalizado() = )
+        if (tablero.JuegoFinalizado() == true)
+        {
+            std::cout<<"El juego a finalizado"<<std::endl;
+            char ganador = tablero.ObtenerGanador();
+            std::cout<<"El ganador es: "<< ganador << std::endl;
+        }
     }
+
+    std::cout<<"El juego a finalizado"<<std::endl;
+    char ganador = tablero.ObtenerGanador();
+    std::cout<<"El ganador es: "<< ganador << std::endl;
 
     // Mostrar el resultado
     juego.MostrarResultado();
