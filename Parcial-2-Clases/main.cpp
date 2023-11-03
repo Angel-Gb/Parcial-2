@@ -77,15 +77,6 @@ int main()
 
         // Cambiar al siguiente jugador
         jugadorActual = (jugadorActual == 'X') ? 'O' : 'X';
-
-
-        //Comprobando si hay jugadas posibles
-//        if (tablero.JuegoFinalizado() == true)
-//        {
-//            std::cout<<"El juego a finalizado"<<std::endl;
-//            char ganador = tablero.ObtenerGanador();
-//            std::cout<<"El ganador es: "<< ganador << std::endl;
-//        }
     }
 
     char ganador;
@@ -98,10 +89,6 @@ int main()
         _sleep(3000);
     }
 
-    /*std::cout<<"El juego a finalizado"<<std::endl;
-    char ganador = tablero.ObtenerGanador();
-    std::cout<<"El ganador es: "<< ganador << std::endl;*/
-
     // Mostrar el resultado
     juego.MostrarResultado();
 
@@ -113,7 +100,7 @@ int main()
         char gano= 0, Nfichas = 0;
         Registro(NuevoRegistro);
 
-        if(ganador = 'X')
+        if(ganador == 'X')
         {
             std::cout<<"Ingrese el nombre del jugador X: ";
             std::cin>>jugador;
@@ -149,7 +136,7 @@ int main()
 
 void Registro(string NuevoRegistro){
     ofstream archivo;
-    archivo.open("Registro.txt", ios::in);
+    archivo.open("Registro.txt", std::ios::app);
     if(archivo.fail()){
         cout<<"No se pudo abrir el archivo";
         exit(1);
