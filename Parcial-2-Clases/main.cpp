@@ -136,7 +136,7 @@ int main()
 
 void Registro(string NuevoRegistro){
     ofstream archivo;
-    archivo.open("Registro.txt", std::ios::app);
+    archivo.open("Registro.txt" , ios::out | ios::app);
     if(archivo.fail()){
         cout<<"No se pudo abrir el archivo";
         exit(1);
