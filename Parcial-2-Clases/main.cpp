@@ -95,7 +95,7 @@ int main()
 
         string jugador, NuevoRegistro;
         char gano = 0;
-        char Nfichas = tablero.CantidadFichas();
+        int Nfichas = tablero.CantidadFichas();
 
         if (ganador == 'X') {
             cout << "Ingrese el nombre del jugador X: ";
@@ -108,7 +108,7 @@ int main()
             gano = (ganador == 'O') ? 's' : 'n';
         }
 
-        NuevoRegistro = jugador + "," + gano + "," + Nfichas + "," + HoraFecha() + ";" + "\n";
+        NuevoRegistro = jugador + "," + gano + "," + to_string(Nfichas) + "," + HoraFecha() + ";" + "\n";
         Registro(NuevoRegistro);
 
     // Mostrar el resultado
