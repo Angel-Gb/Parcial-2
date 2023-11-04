@@ -22,7 +22,7 @@ class Tablero
         bool HayMovimientosDisponibles(char jugador) const;
         bool JuegoFinalizado() const;
         char ObtenerGanador() const;
-        char  CantidadFichas();
+        int  CantidadFichas();
 
 };
 

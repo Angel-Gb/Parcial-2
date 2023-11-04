@@ -89,13 +89,10 @@ int main()
         _sleep(3000);
     }
 
-    // Mostrar el resultado
-    juego.MostrarResultado();
+  //mostrar resultado original pos
 
     char *HorayFecha = HoraFecha();
 
-    for (int k = 0; k < 1; k++)
-    {
         string jugador, NuevoRegistro;
         char gano = 0;
         char Nfichas = tablero.CantidadFichas();
@@ -111,10 +108,11 @@ int main()
             gano = (ganador == 'O') ? 's' : 'n';
         }
 
-        NuevoRegistro = "\n"+jugador + "," + gano + "," + Nfichas + HoraFecha() + ";";
+        NuevoRegistro = jugador + "," + gano + "," + Nfichas + "," + HoraFecha() + ";" + "\n";
         Registro(NuevoRegistro);
 
-    }
+    // Mostrar el resultado
+    juego.MostrarResultado();
 
     return 0;
 }
