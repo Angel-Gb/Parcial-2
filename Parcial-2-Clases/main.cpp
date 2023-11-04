@@ -108,7 +108,7 @@ int main()
             gano = (ganador == 'O') ? 's' : 'n';
         }
 
-        NuevoRegistro = jugador + "," + gano + "," + to_string(Nfichas) + "," + HoraFecha() + ";" + "\n";
+        NuevoRegistro = jugador + "," + gano + "," + to_string(Nfichas) + "," + HoraFecha();
         Registro(NuevoRegistro);
 
     // Mostrar el resultado
