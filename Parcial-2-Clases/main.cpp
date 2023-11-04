@@ -108,10 +108,10 @@ int main()
         else {
             cout << "Ingrese el nombre del jugador 0: ";
             cin >> jugador;
-            gano = (ganador == '0') ? 's' : 'n';
+            gano = (ganador == 'O') ? 's' : 'n';
         }
 
-        NuevoRegistro = jugador + "," + gano + "," + Nfichas + HoraFecha() + ";\n";
+        NuevoRegistro = "\n"+jugador + "," + gano + "," + Nfichas + HoraFecha() + ";";
         Registro(NuevoRegistro);
 
     }
