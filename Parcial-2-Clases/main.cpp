@@ -9,7 +9,7 @@
 
 using namespace std;
 
-void Registro(string NuevoRegistro);
+void Registro(const string &NuevoRegistro);
 char* HoraFecha();
 
 int main()
@@ -96,37 +96,23 @@ int main()
 
     for (int k = 0; k < 1; k++)
     {
-        string jugador, NuevoRegistro = " ";
-        char gano= 0, Nfichas = 0;
+        string jugador, NuevoRegistro;
+        char gano = 0;
+        char Nfichas = tablero.CantidadFichas();
+
+        if (ganador == 'X') {
+            cout << "Ingrese el nombre del jugador X: ";
+            cin >> jugador;
+            gano = (ganador == 'X') ? 's' : 'n';
+        }
+        else {
+            cout << "Ingrese el nombre del jugador 0: ";
+            cin >> jugador;
+            gano = (ganador == '0') ? 's' : 'n';
+        }
+
+        NuevoRegistro = jugador + "," + gano + "," + Nfichas + HoraFecha() + ";\n";
         Registro(NuevoRegistro);
-
-        if(ganador == 'X')
-        {
-            std::cout<<"Ingrese el nombre del jugador X: ";
-            std::cin>>jugador;
-
-            Nfichas = tablero.CantidadFichas();
-
-            gano = tablero.ObtenerGanador();
-            if(gano == true)
-                NuevoRegistro = jugador+",si,"+Nfichas+HorayFecha+"; \n";
-            else
-                NuevoRegistro = jugador+",no,"+Nfichas+HorayFecha+"; \n";
-        }
-
-        else
-        {
-            std::cout<<"Ingrese el nombre del jugador 0: ";
-            std::cin>>jugador;
-
-            Nfichas = tablero.CantidadFichas();
-
-            gano = tablero.ObtenerGanador();
-            if(gano == true)
-                NuevoRegistro = jugador+",si,"+Nfichas+HorayFecha+"; \n";
-            else
-                NuevoRegistro = jugador+",no,"+Nfichas+HorayFecha+"; \n";
-        }
 
     }
 
@@ -134,25 +120,25 @@ int main()
 }
 
 
-void Registro(string NuevoRegistro){
-    ofstream archivo;
-    archivo.open("Registro.txt" , ios::out | ios::app);
-    if(archivo.fail()){
-        cout<<"No se pudo abrir el archivo";
+void Registro(const string &NuevoRegistro){
+
+    ofstream archivo("Registro.txt", ios::out | ios::app);
+    if (!archivo) {
+        cout << "No se pudo abrir el archivo" << endl;
         exit(1);
     }
 
-    if(NuevoRegistro != " ")
-    {
-        archivo<<NuevoRegistro;
+    if (!NuevoRegistro.empty()) {
+        archivo << NuevoRegistro;
         archivo.close();
     }
 }
 
 char* HoraFecha(){
+
     char *registro;
     time_t tAct = time(NULL);
-    asctime(localtime(&tAct));
-    registro=asctime(localtime(&tAct));
+    registro = asctime(localtime(&tAct));
     return registro;
+
 }
