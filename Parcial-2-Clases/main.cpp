@@ -98,13 +98,13 @@ int main()
         int Nfichas = tablero.CantidadFichas();
 
         if (ganador == 'X') {
-            cout << "Ingrese el nombre del jugador X: ";
-            cin >> jugador;
+            std::cout << "Ingrese el nombre del jugador X: ";
+            std::cin >> jugador;
             gano = (ganador == 'X') ? 's' : 'n';
         }
         else {
-            cout << "Ingrese el nombre del jugador 0: ";
-            cin >> jugador;
+            std::cout << "Ingrese el nombre del jugador 0: ";
+            std::cin >> jugador;
             gano = (ganador == 'O') ? 's' : 'n';
         }
 
@@ -122,7 +122,7 @@ void Registro(const string &NuevoRegistro){
 
     ofstream archivo("Registro.txt", ios::out | ios::app);
     if (!archivo) {
-        cout << "No se pudo abrir el archivo" << endl;
+        std::cout << "No se pudo abrir el archivo" << std::endl;
         exit(1);
     }
 
